@@ -37,7 +37,7 @@ type
 
   TD = class(TC)
   public
-    procedure show; virtual;
+    procedure show; reintroduce; virtual;
   end;
 
   TE = class(TD)
