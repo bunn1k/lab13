@@ -144,10 +144,10 @@ begin
   A:=TC.Create; A.show; A.Free;
   A:=TD.Create; A.show; A.Free;
   A:=TE.Create; A.show; A.Free;
-  D:=TD.Create; D.show; D.Free;
-  D:=TE.Create; D.show; D.Free;
-  D:=TF.Create; D.show; D.Free;
-  D:=TG.Create; D.show; D.Free;
+  D:=TD.Create; A.show; A.Free;
+  D:=TE.Create; A.show; A.Free;
+  D:=TF.Create; A.show; A.Free;
+  D:=TG.Create; A.show; A.Free;
 end;
 
 end.
