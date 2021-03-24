@@ -1,0 +1,103 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+  TA = class
+  public
+    procedure show; virtual;
+  end;
+
+  TB = class(TA)
+  public
+    procedure show; override;
+  end;
+
+  TC = class(TB)
+  public
+    procedure show; override;
+  end;
+
+  TD = class(TC)
+  public
+    procedure show; reintroduce;
+  end;
+
+  TE = class(TD)
+  public
+    procedure show; virtual;
+  end;
+
+  TF = class(TE)
+  public
+    procedure show; override;
+  end;
+
+  TG = class(TF)
+  public
+    procedure show; override;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TA }
+
+procedure TA.show;
+begin
+  ShowMessage('TA.show');
+end;
+
+{ TB }
+
+procedure TB.show;
+begin
+  ShowMessage('TB.show');
+end;
+
+{ TC }
+
+procedure TC.show;
+begin
+  ShowMessage('TC.show');
+end;
+
+
+
+{ TD }
+
+procedure TD.show;
+begin
+  ShowMessage('TD.show');
+end;
+
+{ TE }
+
+procedure TE.show;
+begin
+  ShowMessage('TE.show');
+end;
+
+{ TF }
+
+procedure TF.show;
+begin
+  ShowMessage('TF.show');
+end;
+
+end.

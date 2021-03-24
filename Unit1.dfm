@@ -13,4 +13,30 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Button1: TButton
+    Left = 152
+    Top = 56
+    Width = 305
+    Height = 57
+    Caption = 'A:=TA.Create: A.show; A.Free;'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 152
+    Top = 119
+    Width = 305
+    Height = 57
+    Caption = 'B:=TB.Create: B.show; B.Free;'
+    TabOrder = 1
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 152
+    Top = 182
+    Width = 305
+    Height = 57
+    Caption = 'D:=TD.Create: D.show; D.Free;'
+    TabOrder = 2
+  end
 end
