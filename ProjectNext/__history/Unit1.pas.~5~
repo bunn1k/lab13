@@ -1,0 +1,55 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TForm1 = class(TForm)
+  private
+  public
+  end;
+
+  T1 = class
+    procedure Test(i:integer);
+  end;
+
+  T2 = class(T1)
+    procedure Test(s:string);
+  end;
+
+  T3 = class(T2)
+    procedure Test(i:integer);
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ T1 }
+
+procedure T1.Test(i: integer);
+begin
+  ShowMessage('T1.Test(i:integer)');
+end;
+
+{ T2 }
+
+procedure T2.Test(s: string);
+begin
+  ShowMessage('T2.Test(s:string)');
+end;
+
+{ T3 }
+
+procedure T3.Test(i: integer);
+begin
+  ShowMessage('T3.Test(i:integer)');
+end;
+
+end.
