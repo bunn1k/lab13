@@ -21,7 +21,7 @@ type
   end;
 
   T2 = class(T1)
-    procedure Test(s:string); reintroduce; overload;
+    procedure Test(s:string); overload;
     procedure Test(i:integer); override;
   end;
 

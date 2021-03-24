@@ -9,21 +9,24 @@ uses
 type
   TForm1 = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
   public
   end;
 
   T1 = class
-    procedure Test(i:integer);overload;
+    procedure Test(i:integer); overload; virtual;
   end;
 
   T2 = class(T1)
-    procedure Test(s:string);overload;
+    procedure Test(s:string); reintroduce; overload;
+    procedure Test(i:integer); override;
   end;
 
   T3 = class(T2)
-    procedure Test(i:integer);
+    procedure Test(i:integer); override;
   end;
 
 var
@@ -50,6 +53,11 @@ begin
   ShowMessage('T2.Test(s:string)');
 end;
 
+procedure T2.Test(i: integer);
+begin
+  ShowMessage('T2.Test(i:integer)');
+end;
+
 { T3 }
 
 procedure T3.Test(i: integer);
@@ -61,6 +69,20 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   T2_:=T2.Create;
   T2_.Test('Ìועמה גûחûגאיסÿ!');
+  T2_.Test(1000);
+  T2_.Free;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  T1_:=T2.Create;
+  T1_.Test(1000);
+  T1_.Free;
+  T1_:=T3.Create;
+  T1_.Test(1000);
+  T1_.Free;
+  T2_:=T3.Create;
+  T2_.Test(1000);
   T2_.Free;
 end;
 
