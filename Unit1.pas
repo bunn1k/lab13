@@ -37,7 +37,7 @@ type
 
   TD = class(TC)
   public
-    procedure show; virtual;
+    procedure show; reintroduce; override;
   end;
 
   TE = class(TD)
@@ -47,7 +47,7 @@ type
 
   TF = class(TE)
   public
-    procedure show; override;
+    procedure show; virtual;
   end;
 
   TG = class(TF)
