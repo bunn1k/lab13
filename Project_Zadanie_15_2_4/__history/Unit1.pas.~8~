@@ -1,0 +1,70 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Memo1: TMemo;
+  private
+  public
+  end;
+
+  T1 = class
+  private
+  public
+    procedure Test(i:integer); virtual;
+    procedure Fly; virtual;
+    procedure look; virtual;
+  end;
+
+  T2 = class(T1)
+  private
+  public
+    procedure Test(i:integer); override;
+    procedure Fly; override;
+    procedure look; override;
+    procedure Fly2; virtual;
+  end;
+
+  T3 = class(T2)
+  private
+  public
+    procedure Test(i:integer);
+    procedure Fly;
+    procedure look;
+  end;
+
+var
+  Form1: TForm1;
+  T1_:T1;
+  T2_:T2;
+  T3_:T3;
+
+
+implementation
+
+{$R *.dfm}
+
+{ T1 }
+
+procedure T1.Fly;
+begin
+  ShowMessage('T1.Fly');
+end;
+
+procedure T1.look;
+begin
+  ShowMessage('T1.look');
+end;
+
+procedure T1.Test(i: integer);
+begin
+  ShowMessage('T1.Test(i:integer)');
+end;
+
+end.
