@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Virtual Methods Table'
-  ClientHeight = 262
+  ClientHeight = 317
   ClientWidth = 452
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -25,10 +25,20 @@ object Form1: TForm1
   end
   object Memo1: TMemo
     Left = 0
-    Top = 56
+    Top = 57
     Width = 452
-    Height = 206
-    Align = alBottom
+    Height = 208
+    Align = alCustom
     TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 24
+    Top = 271
+    Width = 169
+    Height = 38
+    Caption = #1055#1086#1083#1091#1095#1080#1090#1100' VMT '#1086#1073#1098#1077#1082#1090#1072' '#1082#1083#1072#1089#1089#1072' T3'
+    TabOrder = 2
+    WordWrap = True
+    OnClick = Button2Click
   end
 end

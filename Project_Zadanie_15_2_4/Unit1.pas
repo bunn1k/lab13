@@ -10,7 +10,9 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Memo1: TMemo;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
   public
   end;
@@ -36,8 +38,8 @@ type
   private
   public
     procedure Test(i:integer);
-    procedure Fly;
-    procedure look;
+    procedure Fly; virtual;
+    procedure look; override;
   end;
 
 var
@@ -145,6 +147,32 @@ begin
   FreeAndNil(T1_);
   FreeAndNil(T2_);
 
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+type
+  TVMT = array[0..100] of pointer;
+  GoProc = procedure(Obj:T1);
+
+var
+  pVMT:^TVMT;
+  pMethod:pointer;
+  pObj:pointer;
+  i,j,k,sum:integer;
+
+begin
+  T3_:=T3.Create;
+  pObj:=pointer(T3_);
+  pVMT:=pointer(pObj^);
+  //pMethod:=pVMT^[0];
+
+  Memo1.Lines.Add('pVMT указывает на VMT объект класса ' + TObject(pObj).ClassName);
+  Memo1.Lines.Add('Адрес первого метода в VMT равен ' + #9 + IntToStr(longword(pVMT^[0])));
+  Memo1.Lines.Add('Адрес второго метода в VMT равен ' + #9 + IntToStr(longword(pVMT^[1])));
+  Memo1.Lines.Add('Адрес третьего метода в VMT равен ' + #9 + IntToStr(longword(pVMT^[2])));
+  Memo1.Lines.Add('');
+
+  FreeAndNil(T3_);
 end;
 
 end.
