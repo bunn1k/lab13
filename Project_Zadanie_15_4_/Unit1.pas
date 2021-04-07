@@ -13,9 +13,12 @@ type
     procedure Button1Click(Sender: TObject);
   private
     FA:word;
+    FB:integer;
     procedure SetA(const Value: word);
+    function GetB: integer;
   public
     property A:word read FA write SetA;
+    property B:integer read GetB write FB;
   end;
 
 var
@@ -31,6 +34,13 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   A:=100;
   Memo1.Lines.Add(IntToStr(A));
+  B:=300;
+  Memo1.Lines.Add(IntToStr(B));
+end;
+
+function TForm1.GetB: integer;
+begin
+  Result := FB;
 end;
 
 procedure TForm1.SetA(const Value: word);
