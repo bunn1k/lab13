@@ -11,8 +11,10 @@ type
     Button1: TButton;
     Memo1: TMemo;
     Button2: TButton;
+    Button3: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
   public
   end;
@@ -172,6 +174,18 @@ begin
   Memo1.Lines.Add('Адрес третьего метода в VMT равен ' + #9 + IntToStr(longword(pVMT^[2])));
   Memo1.Lines.Add('');
 
+  FreeAndNil(T3_);
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+type GoProc = procedure(Obj:TObject);
+var pMethod:pointer;
+begin
+  pMethod:=addr(T3.Test);
+  Memo1.Lines.Add('Адрес статического метода равен ' + #9 + IntToStr(longword(pMethod)));
+  T3_:=T3.Create;
+  GoProc(pMethod)(T3_);
+  T1(T3_).Test(1);
   FreeAndNil(T3_);
 end;
 
