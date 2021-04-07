@@ -35,11 +35,12 @@ begin
   A:=100;
   Memo1.Lines.Add(IntToStr(A));
   B:=300;
-  Memo1.Lines.Add(IntToStr(B));
+  Memo1.Lines.Add(IntToStr(B+B));
 end;
 
 function TForm1.GetB: integer;
 begin
+  FB:=FB+5;
   Result := FB;
 end;
 
