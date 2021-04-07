@@ -9,7 +9,6 @@ uses
 type
   TForm1 = class(TForm)
     Button1: TButton;
-    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,7 +32,6 @@ type
 
 var
   Form1: TForm1;
-  Obj:TFirstClass;
 
 implementation
 uses Unit2;
@@ -47,15 +45,6 @@ begin
   priv:=1;
   publ:='publ';
   prot:=100.123;
-end;
-
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  Obj:=TFirstClass.Create;
-  Obj.priv:=1;
-  Obj.publ:='publ';
-  Obj.prot:=100.123;
-  Obj.Free;
 end;
 
 end.

@@ -9,7 +9,6 @@ uses
 type
   TForm2 = class(TForm)
     Button2: TButton;
-    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,15 +34,6 @@ begin
   //priv:=1;
   publ:='publ';
   prot:=100.123;
-end;
-
-procedure TForm2.Button2Click(Sender: TObject);
-begin
-  Obj:=TFristClass.Create;
-  Obj.priv:=1;
-  Obj.publ:='publ';
-  Obj.prot:=100.123;
-  Obj.Free;
 end;
 
 end.
